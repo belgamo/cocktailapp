@@ -8,6 +8,7 @@ target 'cocktailapp' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+
   target 'cocktailappTests' do
     inherit! :complete
     # Pods for testing
@@ -32,4 +33,3 @@ target 'cocktailapp-tvOS' do
   end
 end
 
-pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
