@@ -10,7 +10,7 @@ import Drink from '../../../components/Drink';
 
 import { normalizeCategoryName } from '../../../utils/normalizers';
 
-const CategoryDetails = () => {
+const DrinkList = () => {
   const route = useRoute();
   const { data = [], loading, error } = useFetch(
     `/filter.php?c=${normalizeCategoryName(route.params.name)}`,
@@ -36,4 +36,4 @@ const CategoryDetails = () => {
   );
 };
 
-export default CategoryDetails;
+export default DrinkList;

@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import CategoriesScreen from '../../screens/Categories';
-import CategoriesDetailsScreen from '../../screens/Categories/compose/CategoryDetails';
+import DrinkStack from '../DrinkNavigator';
 
 const Stack = createStackNavigator();
 
@@ -16,9 +16,12 @@ const HomeStack = () => (
       component={CategoriesScreen}
     />
     <Stack.Screen
-      name="CategoryDetails"
-      options={({ route }) => ({ title: route.params.name })}
-      component={CategoriesDetailsScreen}
+      name="DrinkStack"
+      options={({ route }) => ({
+        title: route.params.name,
+        headerShown: false,
+      })}
+      component={DrinkStack}
     />
     <Stack.Screen
       name="SearchScreen"

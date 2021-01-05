@@ -7,7 +7,7 @@ const Category = ({ name }) => {
   const navigation = useNavigation();
 
   return (
-    <Container onPress={() => navigation.navigate('CategoryDetails', { name })}>
+    <Container onPress={() => navigation.navigate('DrinkStack', { name })}>
       <StyledSurface style={{ flex: 1, width: '100%' }}>
         <Name>{name}</Name>
       </StyledSurface>
