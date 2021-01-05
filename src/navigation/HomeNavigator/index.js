@@ -1,18 +1,24 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import HomeScreen from '../../screens/Home';
+import CategoriesScreen from '../../screens/Categories';
+import CategoriesDetailsScreen from '../../screens/Categories/compose/CategoryDetails';
 
 const Stack = createStackNavigator();
 
 const Component = () => <></>;
 
 const HomeStack = () => (
-  <Stack.Navigator initialRouteName="HomeScreen">
+  <Stack.Navigator initialRouteName="CategoriesScreen">
     <Stack.Screen
-      name="HomeScreen"
+      name="CategoriesScreen"
       options={{ title: 'Categorias' }}
-      component={HomeScreen}
+      component={CategoriesScreen}
+    />
+    <Stack.Screen
+      name="CategoryDetails"
+      options={({ route }) => ({ title: route.params.name })}
+      component={CategoriesDetailsScreen}
     />
     <Stack.Screen
       name="SearchScreen"

@@ -3,9 +3,9 @@ import { FlatList } from 'react-native';
 import { ActivityIndicator, Text } from 'react-native-paper';
 import useFetch from 'use-http';
 
-import Container from '../Container';
-import Category from '../Category';
-import Error from '../Error';
+import Container from '../../components/Container';
+import Category from '../../components/Category';
+import Error from '../../components/Error';
 
 const Categories = () => {
   const { data = [], loading, error } = useFetch('/list.php?c=list', {}, []);
