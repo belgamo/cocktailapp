@@ -1,6 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import HomeScreen from '../../screens/Home';
+
 const Stack = createStackNavigator();
 
 const Component = () => <></>;
@@ -10,7 +12,7 @@ const HomeStack = () => (
     <Stack.Screen
       name="HomeScreen"
       options={{ title: 'Categorias' }}
-      component={Component}
+      component={HomeScreen}
     />
     <Stack.Screen
       name="SearchScreen"
