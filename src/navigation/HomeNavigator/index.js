@@ -1,18 +1,26 @@
 import React from 'react';
+import { IconButton } from 'react-native-paper';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import CategoriesScreen from '../../screens/Categories';
+import SearchStack from '../SearchNavigator';
 import DrinkStack from '../DrinkNavigator';
 
 const Stack = createStackNavigator();
-
-const Component = () => <></>;
 
 const HomeStack = () => (
   <Stack.Navigator initialRouteName="CategoriesScreen">
     <Stack.Screen
       name="CategoriesScreen"
-      options={{ title: 'Categorias' }}
+      options={({ navigation }) => ({
+        title: 'Categories',
+        headerRight: () => (
+          <IconButton
+            icon="magnify"
+            onPress={() => navigation.navigate('SearchStack')}
+          />
+        ),
+      })}
       component={CategoriesScreen}
     />
     <Stack.Screen
@@ -24,9 +32,9 @@ const HomeStack = () => (
       component={DrinkStack}
     />
     <Stack.Screen
-      name="SearchScreen"
-      options={{ title: 'Pesquisar' }}
-      component={Component}
+      name="SearchStack"
+      options={{ title: 'Search drinks', headerShown: false }}
+      component={SearchStack}
     />
   </Stack.Navigator>
 );

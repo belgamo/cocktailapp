@@ -10,7 +10,7 @@ import Error from '../../components/Error';
 const Categories = () => {
   const { data = [], loading, error } = useFetch('/list.php?c=list', {}, []);
 
-  if (error) return <Error message="Não foi possível exibir as categorias" />;
+  if (error) return <Error message="There was an error on fetch categories!" />;
 
   if (loading)
     return (

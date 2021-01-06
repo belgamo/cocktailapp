@@ -36,7 +36,8 @@ const DrinkDetails = () => {
 
   const onDismissSnackBar = () => setShowSnackbar(false);
 
-  if (error) return <Error message="Não foi possível exibir as categorias" />;
+  if (error)
+    return <Error message="There was an error on fetch drink details!" />;
 
   if (loading)
     return (
