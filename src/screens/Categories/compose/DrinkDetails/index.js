@@ -10,14 +10,21 @@ import {
 } from 'react-native-paper';
 import useFetch from 'use-http';
 import { useRoute } from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Error from '../../../../components/Error';
 import Container from '../../../../components/Container';
 import { Background, SubHeader, TextContainer } from './styles';
+import {
+  addFavorite,
+  removeFavorite,
+} from '../../../../store/modules/favorites/actions';
 
 const BACKEND_INGREDIENTS_QUANTITY = 15;
 
 const DrinkDetails = () => {
+  const dispatch = useDispatch();
+  const { favorites } = useSelector((state) => state.favorites);
   const route = useRoute();
   const { data = [], loading, error } = useFetch(
     `lookup.php?i=${route.params.id}`,
@@ -35,7 +42,13 @@ const DrinkDetails = () => {
     );
 
   const drink = data.drinks[0];
-  const heartColor = true ? 'red' : 'gray';
+  const favorite = favorites.find(
+    (drinks) => drinks.idDrink === route.params.id
+  );
+  const heartColor = favorite ? 'red' : 'gray';
+  const heartAction = !favorite
+    ? addFavorite({ drink })
+    : removeFavorite({ drinkId: route.params.id });
 
   return (
     <>
@@ -52,7 +65,7 @@ const DrinkDetails = () => {
             marginLeft: 'auto',
           }}
           color={heartColor}
-          onPress={console.log}
+          onPress={() => dispatch(heartAction)}
         />
       </SubHeader>
       <TextContainer>
