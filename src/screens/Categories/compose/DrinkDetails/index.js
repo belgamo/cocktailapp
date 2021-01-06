@@ -61,30 +61,32 @@ const DrinkDetails = () => {
 
   return (
     <>
-      <Background source={{ uri: drink.strDrinkThumb }} />
-      <SubHeader>
-        <View>
-          <Headline>{drink.strDrink}</Headline>
-          {Boolean(drink.strTags) && <Caption>{drink.strTags}</Caption>}
-        </View>
-        <IconButton
-          icon="heart"
-          size={30}
-          style={{
-            marginLeft: 'auto',
-          }}
-          color={heartColor}
-          onPress={onFavorite}
-        />
-      </SubHeader>
       <ScrollView>
+        <Background source={{ uri: drink.strDrinkThumb }} />
+        <SubHeader>
+          <View>
+            <Headline>{drink.strDrink}</Headline>
+            {Boolean(drink.strTags) && <Caption>{drink.strTags}</Caption>}
+          </View>
+          <IconButton
+            icon="heart"
+            size={30}
+            style={{
+              marginLeft: 'auto',
+            }}
+            color={heartColor}
+            onPress={onFavorite}
+          />
+        </SubHeader>
         <TextContainer>
           <Title>Ingredients</Title>
           {Array(BACKEND_INGREDIENTS_QUANTITY)
             .fill(0)
             .map((item, index) =>
               drink[`strIngredient${index}`] ? (
-                <Text>• {drink[`strIngredient${index}`]}</Text>
+                <Text key={`strIngredient${index}`}>
+                  • {drink[`strIngredient${index}`]}
+                </Text>
               ) : null
             )}
         </TextContainer>
@@ -93,6 +95,7 @@ const DrinkDetails = () => {
           <Text>{drink.strInstructions}</Text>
         </TextContainer>
       </ScrollView>
+
       <Snackbar
         visible={showSnackbar}
         onDismiss={onDismissSnackBar}
