@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import {
   ActivityIndicator,
   IconButton,
@@ -68,20 +68,22 @@ const DrinkDetails = () => {
           onPress={() => dispatch(heartAction)}
         />
       </SubHeader>
-      <TextContainer>
-        <Title>Ingredients</Title>
-        {Array(BACKEND_INGREDIENTS_QUANTITY)
-          .fill(0)
-          .map((item, index) =>
-            drink[`strIngredient${index}`] ? (
-              <Text>• {drink[`strIngredient${index}`]}</Text>
-            ) : null
-          )}
-      </TextContainer>
-      <TextContainer>
-        <Title>Instructions</Title>
-        <Text>{drink.strInstructions}</Text>
-      </TextContainer>
+      <ScrollView>
+        <TextContainer>
+          <Title>Ingredients</Title>
+          {Array(BACKEND_INGREDIENTS_QUANTITY)
+            .fill(0)
+            .map((item, index) =>
+              drink[`strIngredient${index}`] ? (
+                <Text>• {drink[`strIngredient${index}`]}</Text>
+              ) : null
+            )}
+        </TextContainer>
+        <TextContainer>
+          <Title>Instructions</Title>
+          <Text>{drink.strInstructions}</Text>
+        </TextContainer>
+      </ScrollView>
     </>
   );
 };
