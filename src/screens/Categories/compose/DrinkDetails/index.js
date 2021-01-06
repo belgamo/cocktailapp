@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, ScrollView } from 'react-native';
 import {
   ActivityIndicator,
@@ -7,6 +7,7 @@ import {
   Caption,
   Headline,
   Text,
+  Snackbar,
 } from 'react-native-paper';
 import useFetch from 'use-http';
 import { useRoute } from '@react-navigation/native';
@@ -31,6 +32,9 @@ const DrinkDetails = () => {
     {},
     []
   );
+  const [showSnackbar, setShowSnackbar] = useState(false);
+
+  const onDismissSnackBar = () => setShowSnackbar(false);
 
   if (error) return <Error message="Não foi possível exibir as categorias" />;
 
@@ -50,6 +54,11 @@ const DrinkDetails = () => {
     ? addFavorite({ drink })
     : removeFavorite({ drinkId: route.params.id });
 
+  const onFavorite = () => {
+    dispatch(heartAction);
+    setShowSnackbar(true);
+  };
+
   return (
     <>
       <Background source={{ uri: drink.strDrinkThumb }} />
@@ -65,7 +74,7 @@ const DrinkDetails = () => {
             marginLeft: 'auto',
           }}
           color={heartColor}
-          onPress={() => dispatch(heartAction)}
+          onPress={onFavorite}
         />
       </SubHeader>
       <ScrollView>
@@ -84,6 +93,16 @@ const DrinkDetails = () => {
           <Text>{drink.strInstructions}</Text>
         </TextContainer>
       </ScrollView>
+      <Snackbar
+        visible={showSnackbar}
+        onDismiss={onDismissSnackBar}
+        action={{
+          label: 'X',
+          onPress: onDismissSnackBar,
+        }}
+      >
+        {!favorite ? 'Removed from favorites' : 'Added to favorites'}
+      </Snackbar>
     </>
   );
 };
