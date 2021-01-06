@@ -10,6 +10,7 @@ For this implementation it was used:
 - React Navigation
 - React Native Testing Library
 - Jest
+- ESLint and prettier for code style
 
 Environment:
 
