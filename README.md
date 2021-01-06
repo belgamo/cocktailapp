@@ -37,7 +37,7 @@ Navigation has 4 main flows: Home, Search, Favorites and Drink.
 
 Navigation structure: Stack and Tab
 
-## Favorites
+## How to use
 
 ## Find a drink:
 
@@ -48,11 +48,11 @@ To find a drink you can tap on the search icon on top of the screen and type a t
 To add a drink just find it and toggle heart icon
 
 ## Screenshots
-![alt text](https://i.imgur.com/a0jMdn5.png "Logo Title Text 1")
-![alt text](https://i.imgur.com/mqCEaIf.png "Logo Title Text 1")
-![alt text](https://i.imgur.com/7hHMqmq.png "Logo Title Text 1")
-![alt text](https://i.imgur.com/uC3iRWj.png "Logo Title Text 1")
-![alt text](https://i.imgur.com/u2jkE6G.png "Logo Title Text 1")
-![alt text](https://i.imgur.com/WAC1lyM.png "Logo Title Text 1")
+![alt text](https://i.imgur.com/a0jMdn5.png "")
+![alt text](https://i.imgur.com/mqCEaIf.png "")
+![alt text](https://i.imgur.com/7hHMqmq.png "")
+![alt text](https://i.imgur.com/uC3iRWj.png "")
+![alt text](https://i.imgur.com/u2jkE6G.png "")
+![alt text](https://i.imgur.com/WAC1lyM.png "")
 
 
